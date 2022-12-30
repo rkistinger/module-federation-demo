@@ -5,6 +5,7 @@ const { FederatedTypesPlugin } = require('@module-federation/typescript');
 const nextConfig = {
   reactStrictMode: true,
   webpack(config, options) {
+    /** @type {import('@module-federation/utilities').NextFederationPluginOptions} */
     const baseFederationConfig = {
       name: 'host',
       filename: 'static/chunks/remoteEntry.js',

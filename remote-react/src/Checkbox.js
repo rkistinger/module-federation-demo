@@ -1,14 +1,19 @@
+import '@carvana/showroom-forms/Checkbox/index.css';
 import React from 'react';
+import ShowroomCheckbox from '@carvana/showroom-forms/Checkbox';
 
 export function Checkbox() {
+  const [isChecked, setIsChecked] = React.useState(false);
+
   React.useEffect(() => {
     console.log('hooks work');
   }, []);
 
   return (
-    <div>
-      <input type="checkbox" id="check" />
-      <label htmlFor="check">I'm a checkbox from the remote-react app</label>
-    </div>
+    <ShowroomCheckbox
+      label="I'm a checkbox exposed from the remote-react app"
+      checked={isChecked}
+      onClick={() => setIsChecked(!isChecked)}
+    />
   );
 }

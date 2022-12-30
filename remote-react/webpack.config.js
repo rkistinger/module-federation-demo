@@ -24,6 +24,10 @@ module.exports = {
           presets: ['@babel/preset-react'],
         },
       },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
     ],
   },
   plugins: [
@@ -35,12 +39,24 @@ module.exports = {
         './Checkbox': './src/Checkbox',
       },
       shared: {
+        // 1. https://github.com/module-federation/module-federation-examples/tree/master/nextjs-react#the-remote-app
+        // 2. https://webpack.js.org/plugins/module-federation-plugin/#object-syntax-with-sharing-hints
         'react': {
+          requiredVersion: false,
           singleton: true,
           version: '0',
-          requiredVersion: false,
         },
         'react-dom': {
+          requiredVersion: false,
+          singleton: true,
+          version: '0',
+        },
+        '@carvana/showroom-css-theme': {
+          requiredVersion: false,
+          singleton: true,
+          version: '0',
+        },
+        '@carvana/showroom-forms': {
           requiredVersion: false,
           singleton: true,
           version: '0',

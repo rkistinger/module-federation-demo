@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@carvana/showroom-css-theme": "^0.0.5",
     "@module-federation/nextjs-mf": "^6.0.0",
     "@module-federation/typescript": "^2.1.2",
     "@module-federation/utilities": "^1.0.4",
