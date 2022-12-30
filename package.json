@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "install:apps": "concurrently \"cd ./host && npm install\" \"cd ./remote-next && npm install\"",
-    "dev:remote-next": "cd ./remote-next && npm run dev",
-    "dev:host": "cd ./host && npm run dev",
-    "dev": "concurrently \"npm:dev:remote-next\" \"npm:dev:host\""
+    "install:apps": "concurrently \"cd ./host && npm install\" \"cd ./remote-next && npm install\" \"cd ./remote-react && npm install\"",
+    "start:remote-react": "cd ./remote-react && npm start",
+    "start:remote-next": "cd ./remote-next && npm run dev",
+    "start:host": "cd ./host && npm run dev",
+    "prestart": "cd ./remote-next && npm run build",
+    "start": "concurrently \"npm:start:remote-react\" \"npm:start:remote-next\" \"npm:start:host\""
   },
   "author": "",
   "license": "ISC",
